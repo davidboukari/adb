@@ -1,1 +1,9 @@
 # adb
+
+
+
+## Copy script
+```bash
+
+                
+````
