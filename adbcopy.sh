@@ -21,5 +21,6 @@ do
   relativepathtofile=`echo $file|sed "s/^\(\/\)\(.*\)/\\2/"`
   mkdir -p `dirname $relativepathtofile`
   echo adb pull $file "`dirname ${destination}`/${relativepathtofile}"
+  adb pull $file "`dirname ${destination}`/${relativepathtofile}"
 done
 
