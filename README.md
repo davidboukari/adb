@@ -10,6 +10,29 @@ cp 51-android.rules /etc/udev/rules.d
 
 ## copy
 ```
+cat copy.sh
+
+export PATH=$PATH:~/.android-sdk-macosx/platform-tools
+
+adb devices
+
+directory=$PWD/$(date +%Y%m%d-%H%M)
+mkdir $directory
+time adb pull /mnt/sdcard/DCIM $directory
+
+echo -e '
+$ adb shell
+$ ls /mnt/sdcard/DCIM/Camera
+
+$ time adb pull /mnt/sdcard/DCIM $PWD
+
+#for file in $(adb shell ls /mnt/sdcard/DCIM/Camera/20190531_*); do echo $file; adb pull $file .; done
+
+'
+```
+
+
+```
 #!/bin/bash
 
 
